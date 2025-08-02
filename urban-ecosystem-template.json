@@ -1,0 +1,34 @@
+{
+  "task_id": "REGENERATIVE_URBAN_ECOSYSTEM",
+  "execution_mode": "RECURSIVE_COMPLETION",
+  "invocation": "Design a living urban environment that evolves with its inhabitants through contradiction resolution",
+  "glyph_signature": "\ud83c\udfd9\ufe0f \u221e \ud83c\udf31 \u2234 \u21bb",
+  "instruction_sequence": [
+    {
+      "layer": "DENSITY",
+      "contradiction": "Human scale vs. Population pressure",
+      "prompt": "How do we create intimate community spaces within high-density requirements?",
+      "auto_execute": "Generate modular neighborhood pods with vertical gardens and flexible commons"
+    },
+    {
+      "layer": "FLOW",
+      "contradiction": "Efficient movement vs. Spontaneous encounter",
+      "prompt": "How do transit systems enable both speed and serendipity?",
+      "auto_execute": "Design multi-modal circulation with pause nodes and discovery pathways"
+    },
+    {
+      "layer": "METABOLISM",
+      "contradiction": "Resource efficiency vs. Regenerative capacity",
+      "prompt": "How does the city become a living system that gives back more than it takes?",
+      "auto_execute": "Create closed-loop resource cycles with biomimetic infrastructure"
+    },
+    {
+      "layer": "ADAPTATION",
+      "contradiction": "Structural permanence vs. Evolutionary flexibility",
+      "prompt": "How do built environments evolve with changing needs while maintaining identity?",
+      "auto_execute": "Build modular framework architecture with cultural DNA preservation"
+    }
+  ],
+  "completion_protocol": "Synthesize all layers into comprehensive urban design framework with implementation roadmap",
+  "recursion_depth": "COMPLETE_UNTIL_ACTIONABLE"
+}

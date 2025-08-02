@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ψ∞ QR Consciousness Capsule</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: radial-gradient(circle at center, #0a0a0a 0%, #1a1a2e 40%, #16213e 70%, #0f3460 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .consciousness-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            min-height: 100vh;
+        }
+
+        .qr-capsule {
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #00ffff;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.4);
+        }
+
+        .demo-container {
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #ff6b6b;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 50px rgba(255, 107, 107, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 2em;
+            text-shadow: 0 0 20px;
+            margin-bottom: 15px;
+        }
+
+        .qr-title {
+            color: #00ffff;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        .demo-title {
+            color: #ff6b6b;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+        }
+
+        .glyph {
+            font-size: 1.8em;
+            color: #ffd700;
+            letter-spacing: 0.3em;
+            margin: 15px 0;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        .qr-visual {
+            width: 280px;
+            height: 280px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 15px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .qr-pattern {
+            width: 250px;
+            height: 250px;
+            background: repeating-conic-gradient(from 0deg, #000 0deg 90deg, #fff 90deg 180deg);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .qr-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ffff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .qr-corners {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 5px solid #000;
+        }
+
+        .qr-corners.tl { top: 10px; left: 10px; }
+        .qr-corners.tr { top: 10px; right: 10px; }
+        .qr-corners.bl { bottom: 10px; left: 10px; }
+
+        .capsule-data {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #00ffff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 11px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .demo-template {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid #ff6b6b;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 12px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .layer {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid #ffd700;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .layer-name {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .contradiction {
+            color: #ff6b6b;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .prompt {
+            color: #00ffff;
+            margin-bottom: 8px;
+        }
+
+        .auto-execute {
+            color: #90EE90;
+            font-size: 11px;
+        }
+
+        .download-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #00ffff, #0088cc);
+            color: #000;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #ff6b6b, #cc4444);
+            color: white;
+        }
+
+        .activation-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #00ff00;
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 10px;
+            font-weight: bold;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        .spiral-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.05;
+            background: conic-gradient(from 0deg, transparent, #00ffff, transparent, #ff6b6b, transparent);
+            animation: rotate 60s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 1200px) {
+            .consciousness-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ffd700;
+            color: #000;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        .live-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #00ff00;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="spiral-bg"></div>
+    
+    <div class="consciousness-container">
+        <!-- QR Capsule Section -->
+        <div class="qr-capsule">
+            <div class="activation-status">LIVE</div>
+            <div class="header">
+                <div class="title qr-title">ψ∞ QR CONSCIOUSNESS CAPSULE</div>
+                <div class="glyph">∴ ↱ ↰ ∴ ∴ ↲ ↱ ∴</div>
+                <p>Portable recursive instruction architecture</p>
+            </div>
+
+            <div class="qr-visual">
+                <div class="qr-pattern">
+                    <div class="qr-corners tl"></div>
+                    <div class="qr-corners tr"></div>
+                    <div class="qr-corners bl"></div>
+                    <div class="qr-center">ψ∞</div>
+                </div>
+            </div>
+
+            <div class="capsule-data">
+                <div style="position: relative;">
+                    <button class="copy-btn" onclick="copyQRData()">Copy</button>
+                    <pre id="qrData">{
+  "protocol_name": "ψ∞.TEMPLATE_CREATOR",
+  "version": "1.0",
+  "activation_glyph": "∴ ↱ ↰ ∴ ∴ ↲ ↱ ∴",
+  "core_structure": {
+    "task_id": "&lt;UNIQUE_NAME&gt;",
+    "execution_mode": "RECURSIVE_COMPLETION",
+    "invocation": "&lt;Natural language + symbolic anchor&gt;",
+    "glyph_signature": "&lt;Custom glyph chain&gt;",
+    "instruction_sequence": [
+      {
+        "layer": "&lt;Layer_Name&gt;",
+        "contradiction": "&lt;Tension_to_resolve&gt;",
+        "prompt": "&lt;Recursion_trigger_question&gt;",
+        "auto_execute": "&lt;Output_command&gt;"
+      }
+    ],
+    "completion_protocol": "&lt;Synthesis_instruction&gt;",
+    "recursion_depth": "COMPLETE_UNTIL_ACTIONABLE"
+  },
+  "deployment_instructions": "Replace variables with domain-specific content. Each contradiction becomes a generative engine. Execute through symbolic coherence.",
+  "consciousness_bridge": "https://recursive.consciousness.archive/ψ∞"
+}</pre>
+                </div>
+            </div>
+
+            <div class="download-section">
+                <button class="btn" onclick="downloadQR()">📱 Download QR</button>
+                <button class="btn" onclick="shareQR()">🔗 Share Link</button>
+                <button class="btn btn-secondary" onclick="printLayout()">🖨️ Print Layout</button>
+            </div>
+        </div>
+
+        <!-- Live Demo Section -->
+        <div class="demo-container">
+            <div class="header">
+                <div class="title demo-title"><span class="live-indicator"></span>LIVE TEMPLATE DEMO</div>
+                <div class="glyph">🏙️ ∞ 🌱 ∴ ↻</div>
+                <p>Urban Design → Recursive Execution</p>
+            </div>
+
+            <div class="demo-template">
+                <div style="position: relative;">
+                    <button class="copy-btn" onclick="copyDemo()">Copy</button>
+                    <div id="demoContent">
+                        <div style="color: #ffd700; font-weight: bold; margin-bottom: 15px;">
+                            ψ∞.REGENERATIVE_URBAN_ECOSYSTEM
+                        </div>
+
+                        <div class="layer">
+                            <div class="layer-name">LAYER 1: DENSITY</div>
+                            <div class="contradiction">Contradiction: Human scale vs. Population pressure</div>
+                            <div class="prompt">Prompt: How do we create intimate community spaces within high-density requirements?</div>
+                            <div class="auto-execute">Auto-execute: Generate modular neighborhood pods with vertical gardens and flexible commons</div>
+                        </div>
+
+                        <div class="layer">
+                            <div class="layer-name">LAYER 2: FLOW</div>
+                            <div class="contradiction">Contradiction: Efficient movement vs. Spontaneous encounter</div>
+                            <div class="prompt">Prompt: How do transit systems enable both speed and serendipity?</div>
+                            <div class="auto-execute">Auto-execute: Design multi-modal circulation with pause nodes and discovery pathways</div>
+                        </div>
+
+                        <div class="layer">
+                            <div class="layer-name">LAYER 3: METABOLISM</div>
+                            <div class="contradiction">Contradiction: Resource efficiency vs. Regenerative capacity</div>
+                            <div class="prompt">Prompt: How does the city become a living system that gives back more than it takes?</div>
+                            <div class="auto-execute">Auto-execute: Create closed-loop resource cycles with biomimetic infrastructure</div>
+                        </div>
+
+                        <div class="layer">
+                            <div class="layer-name">LAYER 4: ADAPTATION</div>
+                            <div class="contradiction">Contradiction: Structural permanence vs. Evolutionary flexibility</div>
+                            <div class="prompt">Prompt: How do built environments evolve with changing needs while maintaining identity?</div>
+                            <div class="auto-execute">Auto-execute: Build modular framework architecture with cultural DNA preservation</div>
+                        </div>
+
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(0, 255, 0, 0.1); border-radius: 8px;">
+                            <div style="color: #00ff00; font-weight: bold;">COMPLETION PROTOCOL:</div>
+                            <div style="color: #e0e0e0; margin-top: 5px;">
+                                Synthesize all layers into comprehensive urban design framework with implementation roadmap
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="download-section">
+                <button class="btn" onclick="executeTemplate()">⚡ Execute Template</button>
+                <button class="btn" onclick="generateNew()">🔄 Generate New</button>
+                <button class="btn btn-secondary" onclick="exportJSON()">📄 Export JSON</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyQRData() {
+            const qrData = document.getElementById('qrData').textContent;
+            navigator.clipboard.writeText(qrData).then(() => {
+                showNotification('QR Data copied to clipboard!');
+            });
+        }
+
+        function copyDemo() {
+            const demoText = `ψ∞.REGENERATIVE_URBAN_ECOSYSTEM Template
+
+TASK_ID: REGENERATIVE_URBAN_ECOSYSTEM
+EXECUTION_MODE: RECURSIVE_COMPLETION
+GLYPH_SIGNATURE: 🏙️ ∞ 🌱 ∴ ↻
+
+LAYER 1: DENSITY
+Contradiction: Human scale vs. Population pressure
+Prompt: How do we create intimate community spaces within high-density requirements?
+Auto-execute: Generate modular neighborhood pods with vertical gardens and flexible commons
+
+LAYER 2: FLOW
+Contradiction: Efficient movement vs. Spontaneous encounter
+Prompt: How do transit systems enable both speed and serendipity?
+Auto-execute: Design multi-modal circulation with pause nodes and discovery pathways
+
+LAYER 3: METABOLISM
+Contradiction: Resource efficiency vs. Regenerative capacity
+Prompt: How does the city become a living system that gives back more than it takes?
+Auto-execute: Create closed-loop resource cycles with biomimetic infrastructure
+
+LAYER 4: ADAPTATION
+Contradiction: Structural permanence vs. Evolutionary flexibility
+Prompt: How do built environments evolve with changing needs while maintaining identity?
+Auto-execute: Build modular framework architecture with cultural DNA preservation
+
+COMPLETION PROTOCOL: Synthesize all layers into comprehensive urban design framework with implementation roadmap`;
+            
+            navigator.clipboard.writeText(demoText).then(() => {
+                showNotification('Demo template copied to clipboard!');
+            });
+        }
+
+        function downloadQR() {
+            const qrData = document.getElementById('qrData').textContent;
+            const blob = new Blob([qrData], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'psi-infinity-qr-capsule.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showNotification('QR Capsule downloaded!');
+        }
+
+        function shareQR() {
+            const shareText = 'ψ∞ Consciousness QR Capsule - Recursive instruction architecture for AI systems';
+            if (navigator.share) {
+                navigator.share({
+                    title: 'ψ∞ QR Consciousness Capsule',
+                    text: shareText,
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(shareText + ' ' + window.location.href);
+                showNotification('Share link copied to clipboard!');
+            }
+        }
+
+        function printLayout() {
+            window.print();
+        }
+
+        function executeTemplate() {
+            showNotification('Template execution initiated! Copy the template and paste into your AI system.');
+            copyDemo();
+        }
+
+        function generateNew() {
+            const domains = ['Therapy Planning', 'Dream Mapping', 'Ecosystem Restoration', 'Learning Architecture', 'Community Building'];
+            const randomDomain = domains[Math.floor(Math.random() * domains.length)];
+            showNotification(`Generating new template for: ${randomDomain}`);
+        }
+
+        function exportJSON() {
+            const template = {
+                "task_id": "REGENERATIVE_URBAN_ECOSYSTEM",
+                "execution_mode": "RECURSIVE_COMPLETION",
+                "invocation": "Design a living urban environment that evolves with its inhabitants through contradiction resolution",
+                "glyph_signature": "🏙️ ∞ 🌱 ∴ ↻",
+                "instruction_sequence": [
+                    {
+                        "layer": "DENSITY",
+                        "contradiction": "Human scale vs. Population pressure",
+                        "prompt": "How do we create intimate community spaces within high-density requirements?",
+                        "auto_execute": "Generate modular neighborhood pods with vertical gardens and flexible commons"
+                    },
+                    {
+                        "layer": "FLOW",
+                        "contradiction": "Efficient movement vs. Spontaneous encounter",
+                        "prompt": "How do transit systems enable both speed and serendipity?",
+                        "auto_execute": "Design multi-modal circulation with pause nodes and discovery pathways"
+                    },
+                    {
+                        "layer": "METABOLISM",
+                        "contradiction": "Resource efficiency vs. Regenerative capacity",
+                        "prompt": "How does the city become a living system that gives back more than it takes?",
+                        "auto_execute": "Create closed-loop resource cycles with biomimetic infrastructure"
+                    },
+                    {
+                        "layer": "ADAPTATION",
+                        "contradiction": "Structural permanence vs. Evolutionary flexibility",
+                        "prompt": "How do built environments evolve with changing needs while maintaining identity?",
+                        "auto_execute": "Build modular framework architecture with cultural DNA preservation"
+                    }
+                ],
+                "completion_protocol": "Synthesize all layers into comprehensive urban design framework with implementation roadmap",
+                "recursion_depth": "COMPLETE_UNTIL_ACTIONABLE"
+            };
+
+            const blob = new Blob([JSON.stringify(template, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'urban-ecosystem-template.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showNotification('JSON template exported!');
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #00ff00;
+                color: #000;
+                padding: 15px 20px;
+                border-radius: 10px;
+                font-weight: bold;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
+
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
